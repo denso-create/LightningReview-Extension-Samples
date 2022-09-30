@@ -1,3 +1,0 @@
-# ExtensionFremeworkInterfaces
-
-エクステンション開発において利用できるAPIの一覧です。
