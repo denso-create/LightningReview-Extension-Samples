@@ -62,7 +62,7 @@ namespace DensoCreate.Lakewood.Extensions.MarkdownDocumentParser
 			}
 
 			// ファイルパスがURLの場合はアウトライン解析をしない
-            // 本体側のURLに対するアウトライン解析実行時の挙動との一貫性のため、trueを返しエラーメッセージを表示しない
+			// 本体側のURLに対するアウトライン解析実行時の挙動との一貫性のため、trueを返しエラーメッセージを表示しない
 			if (IsUrl(targetPath))
 			{
 				return true;
@@ -131,7 +131,7 @@ namespace DensoCreate.Lakewood.Extensions.MarkdownDocumentParser
 					parent = lastNode;
 					stack.Push(parent!);
 					headingsStack.Push(lastItem);
-			    }
+				}
 
 				// 前回の見出しレベルより現在の見出しレベルが上がった場合
 				// スタックピークの見出しレベルが現在の見出しレベル以上になるまでスタックからポップする。
@@ -159,8 +159,8 @@ namespace DensoCreate.Lakewood.Extensions.MarkdownDocumentParser
 				// Inline.FirstChildやLastChildで実際の見出しの要素(名前)取得できる。
 				// 見出しのため複数個要素があるわけではないので基本的にはFirstChildとLastChildは同じものが入っている。参考サイトは以下。
 				// https://github.com/lunet-io/markdig/blob/master/src/Markdig/Syntax/Inlines/ContainerInline.cs
-                // inline、firstChild、lastChildは本来であればnullとなることはないと想定しているが、null許容参照型として定義されているため、
-                // nullの場合は、フェールセーフで、当該アウトラインを生成できなくても他のアウトラインを生成するためにcontinueする
+				// inline、firstChild、lastChildは本来であればnullとなることはないと想定しているが、null許容参照型として定義されているため、
+				// nullの場合は、フェールセーフで、当該アウトラインを生成できなくても他のアウトラインを生成するためにcontinueする
 				var inline = heading.Inline;
 				if (inline == null) continue;
 				var firstChild = inline.FirstChild?.ToString();
