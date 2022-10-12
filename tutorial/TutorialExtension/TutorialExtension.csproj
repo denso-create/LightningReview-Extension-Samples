@@ -81,7 +81,6 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
-    <None Include="Resources\AddIssuesIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Views\MessageSettingDialog.xaml">
@@ -90,7 +89,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\EnabledMessageSetting.png" />
+    <Content Include="Resources\AddIssuesIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
