@@ -1,9 +1,9 @@
 # LightningReview-Extension-Samples
-Lightning Review のエクステンション開発者向けのサンプルを公開しているリポジトリです。
+Lightning Review の拡張機能開発者向けのサンプルを公開しているリポジトリです。
 
-このリポジトリは[設計レビュー支援ツール Lightning Review](https://www.lightning-review.com/)向けのエクステンション開発者向けのサンプルを公開しているリポジトリです。
+このリポジトリは[設計レビュー支援ツール Lightning Review](https://www.lightning-review.com/)向けの拡張機能開発者向けのサンプルを公開しているリポジトリです。
 
-* エクステンションの開発方法については、[エクステンション開発マニュアル](https://www.docs.lightning-review.com/extension/)をご参照ください。
+* 拡張機能の開発方法については、[拡張機能開発マニュアル](https://www.docs.lightning-review.com/extension/)をご参照ください。
 
 ## 必ずお読みください
 * 本リポジトリで公開しているサンプルやドキュメントはお客様が対象製品を有効に活用頂く上で参考にしていただくことを想定したものであり、一切の保証は行いません。
