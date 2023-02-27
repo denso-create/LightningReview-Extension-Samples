@@ -1,0 +1,128 @@
+# References
+
+## [LightningReview.ExtensionFramework](LightningReview.ExtensionFramework)
+
+- [`BindableBase`](LightningReview.ExtensionFramework#bindablebase)
+- [`DelegateCommand`](LightningReview.ExtensionFramework#delegatecommand)
+- [`DocumentBeforeJumpEventArgs`](LightningReview.ExtensionFramework#documentbeforejumpeventargs)
+- [`DocumentBeforeParseEventArgs`](LightningReview.ExtensionFramework#documentbeforeparseeventargs)
+- [`DocumentParser`](LightningReview.ExtensionFramework#documentparser)
+- [`DocumentParserExportAttribute`](LightningReview.ExtensionFramework#documentparserexportattribute)
+- [`Extension`](LightningReview.ExtensionFramework#extension)
+- [`ExtensionBase`](LightningReview.ExtensionFramework#extensionbase)
+- [`ExtensionCommand`](LightningReview.ExtensionFramework#extensioncommand)
+- [`ExtensionCommandBase`](LightningReview.ExtensionFramework#extensioncommandbase)
+- [`ExtensionDebug`](LightningReview.ExtensionFramework#extensiondebug)
+- [`ExtensionExportAttribute`](LightningReview.ExtensionFramework#extensionexportattribute)
+- [`ExtensionFrameworkServiceLocator`](LightningReview.ExtensionFramework#extensionframeworkservicelocator)
+- [`ExtensionFrameworkSettings`](LightningReview.ExtensionFramework#extensionframeworksettings)
+- [`ExtensionObject`](LightningReview.ExtensionFramework#extensionobject)
+- [`ExtensionRuntimeException`](LightningReview.ExtensionFramework#extensionruntimeexception)
+- [`IApp`](LightningReview.ExtensionFramework#iapp)
+- [`IDocument`](LightningReview.ExtensionFramework#idocument)
+- [`IDocumentParser`](LightningReview.ExtensionFramework#idocumentparser)
+- [`IDocumentParserMetadata`](LightningReview.ExtensionFramework#idocumentparsermetadata)
+- [`IEntityBase`](LightningReview.ExtensionFramework#ientitybase)
+- [`IExtensionBase`](LightningReview.ExtensionFramework#iextensionbase)
+- [`IExtensionCommandBase`](LightningReview.ExtensionFramework#iextensioncommandbase)
+- [`IExtensionMetadata`](LightningReview.ExtensionFramework#iextensionmetadata)
+- [`IExtensionObject`](LightningReview.ExtensionFramework#iextensionobject)
+- [`IExtensionSettings`](LightningReview.ExtensionFramework#iextensionsettings)
+- [`IExtensionUIService`](LightningReview.ExtensionFramework#iextensionuiservice)
+- [`IHostApp`](LightningReview.ExtensionFramework#ihostapp)
+- [`IIssue`](LightningReview.ExtensionFramework#iissue)
+- [`IOutlineNode`](LightningReview.ExtensionFramework#ioutlinenode)
+- [`IReviewExplorer`](LightningReview.ExtensionFramework#ireviewexplorer)
+- [`IReviewMember`](LightningReview.ExtensionFramework#ireviewmember)
+- [`IReviewSetting`](LightningReview.ExtensionFramework#ireviewsetting)
+- [`IReviewSummary`](LightningReview.ExtensionFramework#ireviewsummary)
+- [`IReviewWindow`](LightningReview.ExtensionFramework#ireviewwindow)
+- [`IssueCancelEventArgs`](LightningReview.ExtensionFramework#issuecanceleventargs)
+- [`IssueEventArgs`](LightningReview.ExtensionFramework#issueeventargs)
+- [`IssueLinkBeforeJumpEventArgs`](LightningReview.ExtensionFramework#issuelinkbeforejumpeventargs)
+- [`IssueLocationBeforeJumpEventArgs`](LightningReview.ExtensionFramework#issuelocationbeforejumpeventargs)
+- [`Menu`](LightningReview.ExtensionFramework#menu)
+- [`MenuBuilder`](LightningReview.ExtensionFramework#menubuilder)
+- [`MenuInsertPos`](LightningReview.ExtensionFramework#menuinsertpos)
+- [`MenuSeparatorInsertPos`](LightningReview.ExtensionFramework#menuseparatorinsertpos)
+- [`OutlineNodeBeforeJumpEventArgs`](LightningReview.ExtensionFramework#outlinenodebeforejumpeventargs)
+- [`ReviewAfterCloseEventArgs`](LightningReview.ExtensionFramework#reviewaftercloseeventargs)
+- [`ReviewCancelEventArgs`](LightningReview.ExtensionFramework#reviewcanceleventargs)
+- [`ReviewEventArgs`](LightningReview.ExtensionFramework#revieweventargs)
+- [`ReviewOnOpenEventArgs`](LightningReview.ExtensionFramework#reviewonopeneventargs)
+- [`ReviewOnSaveEventArgs`](LightningReview.ExtensionFramework#reviewonsaveeventargs)
+- [`ThemeHelper`](LightningReview.ExtensionFramework#themehelper)
+- [`UserException`](LightningReview.ExtensionFramework#userexception)
+- [`ViewModelBase`](LightningReview.ExtensionFramework#viewmodelbase)
+
+## [LightningReview.ExtensionFramework.Framework](LightningReview.ExtensionFramework.Framework)
+
+- [`MenuType`](LightningReview.ExtensionFramework.Framework#menutype)
+- [`RemoveMenuInfo`](LightningReview.ExtensionFramework.Framework#removemenuinfo)
+- [`ToolBar`](LightningReview.ExtensionFramework.Framework#toolbar)
+- [`ToolBarItem`](LightningReview.ExtensionFramework.Framework#toolbaritem)
+- [`ToolBarItemBuilder`](LightningReview.ExtensionFramework.Framework#toolbaritembuilder)
+- [`ToolBarItemDisplayStyle`](LightningReview.ExtensionFramework.Framework#toolbaritemdisplaystyle)
+- [`ToolBarItemInsertPos`](LightningReview.ExtensionFramework.Framework#toolbariteminsertpos)
+- [`ToolBarItemSeparatorInsertPos`](LightningReview.ExtensionFramework.Framework#toolbaritemseparatorinsertpos)
+- [`ToolBarItemType`](LightningReview.ExtensionFramework.Framework#toolbaritemtype)
+
+## [LightningReview.ExtensionFramework.Framework.Controls](LightningReview.ExtensionFramework.Framework.Controls)
+
+- [`DateTimePicker`](LightningReview.ExtensionFramework.Framework.Controls#datetimepicker)
+- [`ToolBarButton`](LightningReview.ExtensionFramework.Framework.Controls#toolbarbutton)
+- [`ToolBarToggleButton`](LightningReview.ExtensionFramework.Framework.Controls#toolbartogglebutton)
+
+## [LightningReview.ExtensionFramework.Framework.Converter](LightningReview.ExtensionFramework.Framework.Converter)
+
+- [`NullToVisibleConverter`](LightningReview.ExtensionFramework.Framework.Converter#nulltovisibleconverter)
+- [`VisibleConverter`](LightningReview.ExtensionFramework.Framework.Converter#visibleconverter)
+
+## [LightningReview.ExtensionFramework.Framework.Diagnostics](LightningReview.ExtensionFramework.Framework.Diagnostics)
+
+- [`ExtensionProfiler`](LightningReview.ExtensionFramework.Framework.Diagnostics#extensionprofiler)
+
+## [LightningReview.ExtensionFramework.Framework.Host](LightningReview.ExtensionFramework.Framework.Host)
+
+- [`ToolBarItemManager`](LightningReview.ExtensionFramework.Framework.Host#toolbaritemmanager)
+
+## [LightningReview.ExtensionFramework.Framework.MVVM](LightningReview.ExtensionFramework.Framework.MVVM)
+
+- [`DialogViewModelBase`](LightningReview.ExtensionFramework.Framework.MVVM#dialogviewmodelbase)
+
+## [LightningReview.ExtensionFramework.Host](LightningReview.ExtensionFramework.Host)
+
+- [`AppBase`](LightningReview.ExtensionFramework.Host#appbase)
+- [`DocumentParserManager`](LightningReview.ExtensionFramework.Host#documentparsermanager)
+- [`ExtensionAppBase`](LightningReview.ExtensionFramework.Host#extensionappbase)
+- [`ExtensionManager`](LightningReview.ExtensionFramework.Host#extensionmanager)
+- [`MenuManager`](LightningReview.ExtensionFramework.Host#menumanager)
+
+## [LightningReview.ExtensionFramework.LightningReview](LightningReview.ExtensionFramework.LightningReview)
+
+- [`ICustomField<TDefinition>`](LightningReview.ExtensionFramework.LightningReview#icustomfieldtdefinition)
+- [`ICustomFieldDefinition`](LightningReview.ExtensionFramework.LightningReview#icustomfielddefinition)
+- [`ICustomRole`](LightningReview.ExtensionFramework.LightningReview#icustomrole)
+- [`IDocumentLink`](LightningReview.ExtensionFramework.LightningReview#idocumentlink)
+- [`IEntityCollection<T>`](LightningReview.ExtensionFramework.LightningReview#ientitycollectiont)
+- [`IIssueImage`](LightningReview.ExtensionFramework.LightningReview#iissueimage)
+- [`IIssueLink`](LightningReview.ExtensionFramework.LightningReview#iissuelink)
+- [`IMemberCustomFieldDefinition`](LightningReview.ExtensionFramework.LightningReview#imembercustomfielddefinition)
+- [`IMemberCustomRoleDefinition`](LightningReview.ExtensionFramework.LightningReview#imembercustomroledefinition)
+- [`INote`](LightningReview.ExtensionFramework.LightningReview#inote)
+- [`INoteGroup`](LightningReview.ExtensionFramework.LightningReview#inotegroup)
+- [`IReview`](LightningReview.ExtensionFramework.LightningReview#ireview)
+- [`IReviewCustomFieldDefinition`](LightningReview.ExtensionFramework.LightningReview#ireviewcustomfielddefinition)
+- [`IReviewFileService`](LightningReview.ExtensionFramework.LightningReview#ireviewfileservice)
+- [`IStatusItem`](LightningReview.ExtensionFramework.LightningReview#istatusitem)
+- [`IUndoTransaction`](LightningReview.ExtensionFramework.LightningReview#iundotransaction)
+
+## [LightningReview.ExtensionFramework.LightningReview.Host](LightningReview.ExtensionFramework.LightningReview.Host)
+
+- [`IMetaData`](LightningReview.ExtensionFramework.LightningReview.Host#imetadata)
+- [`RunScriptResult`](LightningReview.ExtensionFramework.LightningReview.Host#runscriptresult)
+
+## [LightningReview.ExtensionFramework.Properties](LightningReview.ExtensionFramework.Properties)
+
+- [`Resources`](LightningReview.ExtensionFramework.Properties#resources)
+
