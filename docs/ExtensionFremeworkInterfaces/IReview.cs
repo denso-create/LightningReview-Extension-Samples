@@ -6,35 +6,35 @@ using System.Threading.Tasks;
 
 namespace LightningReview.ExtensionFramework.LightningReview
 {
-    /// <summary>
-    /// レビューの操作を実現するインターフェースです。
-    /// </summary>
-    public interface IReview : IEntityBase
-    {
-        #region プロパティ
+	/// <summary>
+	/// レビューの操作を実現するインターフェースです。
+	/// </summary>
+	public interface IReview : IEntityBase
+	{
+		#region プロパティ
 
-        /// <summary>
-        /// レビューファイルの絶対パスを取得します。
-        /// </summary>
-        /// <value>レビューファイルの絶対パスの文字列。</value>
-        string FilePath { get; }
+		/// <summary>
+		/// レビューファイルの絶対パスを取得します。
+		/// </summary>
+		/// <value>レビューファイルの絶対パスの文字列。</value>
+		string FilePath { get; }
 
-        /// <summary>
-        /// レビューファイルに関連づくドキュメントの一覧を取得します。
-        /// </summary>
-        /// <value>レビューファイルに関連づくドキュメントの一覧。</value>
-        IEnumerable<IDocument> Documents { get; }
+		/// <summary>
+		/// レビューファイルに関連づくドキュメントの一覧を取得します。
+		/// </summary>
+		/// <value>レビューファイルに関連づくドキュメントの一覧。</value>
+		IEnumerable<IDocument> Documents { get; }
 
-        /// <summary>
-        /// 前回の保存時からレビューが変更されたかどうかを取得します。
-        /// </summary>
-        /// <value>レビューが変更されたかどうか。</value>
-        bool IsDirty { get; }
+		/// <summary>
+		/// 前回の保存時からレビューが変更されたかどうかを取得します。
+		/// </summary>
+		/// <value>レビューが変更されたかどうか。</value>
+		bool IsDirty { get; }
 
-        /// <summary>
-        /// レビューの設定オブジェクトを取得します。
-        /// </summary>
-        IReviewSetting ReviewSetting { get; }
+		/// <summary>
+		/// レビューの設定オブジェクトを取得します。
+		/// </summary>
+		IReviewSetting ReviewSetting { get; }
 
         /// <summary>
         /// レビューファイルに関連づくノートグループの一覧を取得します。
@@ -61,81 +61,81 @@ namespace LightningReview.ExtensionFramework.LightningReview
         /// <returns>追加した指摘。</returns>
         IIssue AddIssue(IDocument document);
 
-        /// <summary>
-        /// 対象のドキュメントのアウトラインパスで指定したアウトラインに指摘を追加します。
-        /// </summary>
-        /// <param name="document">追加対象のドキュメント。</param>
-        /// <param name="outlinePath">指定するアウトラインパス。</param>
-        /// <returns>追加した指摘。</returns>
-        IIssue AddIssue(IDocument document, string outlinePath);
+		/// <summary>
+		/// 対象のドキュメントのアウトラインパスで指定したアウトラインに指摘を追加します。
+		/// </summary>
+		/// <param name="document">追加対象のドキュメント。</param>
+		/// <param name="outlinePath">指定するアウトラインパス。</param>
+		/// <returns>追加した指摘。</returns>
+		IIssue AddIssue(IDocument document, string outlinePath);
 
-        /// <summary>
-        /// 対象のアウトラインに指摘を追加します。
-        /// </summary>
-        /// <param name="node">追加対象のアウトライン。</param>
-        /// <returns>追加した指摘。</returns>
-        IIssue AddIssue(IOutlineNode node);
+		/// <summary>
+		/// 対象のアウトラインに指摘を追加します。
+		/// </summary>
+		/// <param name="node">追加対象のアウトライン。</param>
+		/// <returns>追加した指摘。</returns>
+		IIssue AddIssue(IOutlineNode node);
 
-        /// <summary>
-        /// レビューファイルに関連づく指摘の一覧を取得します。
-        /// </summary>
-        /// <returns>取得した指摘の一覧。</returns>
-        IEnumerable<IIssue> GetAllIssues();
+		/// <summary>
+		/// レビューファイルに関連づく指摘の一覧を取得します。
+		/// </summary>
+		/// <returns>取得した指摘の一覧。</returns>
+		IEnumerable<IIssue> GetAllIssues();
 
-        /// <summary>
-        /// 指摘のIdを指定して指摘を取得します。
-        /// </summary>
-        /// <param name="issueId">指定する指摘ID。</param>
-        /// <param name="globalId">指定する指摘IDの分類。グローバルIDで検索する場合はtrue、ローカルIDで検索する場合はfalseです。</param>
-        /// <returns>取得した指摘。</returns>
-        IIssue GetIssue(string issueId, bool globalId = false);
+		/// <summary>
+		/// 指摘のIdを指定して指摘を取得します。
+		/// </summary>
+		/// <param name="issueId">指定する指摘ID。</param>
+		/// <param name="globalId">指定する指摘IDの分類。グローバルIDで検索する場合はtrue、ローカルIDで検索する場合はfalseです。</param>
+		/// <returns>取得した指摘。</returns>
+		IIssue GetIssue(string issueId, bool globalId = false);
 
-        /// <summary>
-        /// 指摘を削除します。
-        /// </summary>
-        /// <param name="issue">削除する指摘。</param>
-        void DeleteIssue(IIssue issue);
+		/// <summary>
+		/// 指摘を削除します。
+		/// </summary>
+		/// <param name="issue">削除する指摘。</param>
+		void DeleteIssue(IIssue issue);
 
-        /// <summary>
-        /// 指摘のIdを指定して指摘を削除します。
-        /// </summary>
-        /// <param name="issueId">指定する指摘ID。</param>
-        /// <param name="globalId">指定する指摘IDの分類。グローバルIDで削除する場合はtrue、ローカルIDで削除する場合はfalseです。</param>
-        void DeleteIssueById(string issueId, bool globalId = false);
+		/// <summary>
+		/// 指摘のIdを指定して指摘を削除します。
+		/// </summary>
+		/// <param name="issueId">指定する指摘ID。</param>
+		/// <param name="globalId">指定する指摘IDの分類。グローバルIDで削除する場合はtrue、ローカルIDで削除する場合はfalseです。</param>
+		void DeleteIssueById(string issueId, bool globalId = false);
 
-        #endregion
+		#endregion
 
-        #region ドキュメント 
+		#region ドキュメント 
 
-        /// <summary>
-        /// このコンテキストが保持しているレビューデータにドキュメントを追加します。
-        /// </summary>
-        /// <returns>追加されたドキュメント。</returns>
-        IDocument AddDocument();
+		/// <summary>
+		/// このコンテキストが保持しているレビューデータにドキュメントを追加します。
+		/// </summary>
+		/// <returns>追加されたドキュメント。</returns>
+		IDocument AddDocument();
 
-        /// <summary>
-        /// ファイル名を指定して、新規にドキュメントを追加します。
-        /// 作成したドキュメントは、このレビューのドキュメントとして登録されます。
-        /// </summary>
-        /// <param name="filePath">指定するファイルパス。</param>
-        /// <returns>追加されたドキュメント。</returns>
-        IDocument AddDocument(string filePath);
+		/// <summary>
+		/// ファイル名を指定して、新規にドキュメントを追加します。
+		/// 作成したドキュメントは、このレビューのドキュメントとして登録されます。
+		/// </summary>
+		/// <param name="filePath">指定するファイルパス。</param>
+		/// <returns>追加されたドキュメント。</returns>
+		IDocument AddDocument(string filePath);
 
-        /// <summary>
-        /// 指定したファイル名のドキュメントを取得します。
-        /// ファイル名の大・小文字は区別しません。
-        /// </summary>
-        /// <param name="filePath">指定するファイル名(絶対パス)。</param>
-        /// <returns>取得したドキュメント。</returns>
-        IDocument GetDocument(string filePath);
+		/// <summary>
+		/// 指定したファイル名のドキュメントを取得します。
+		/// ファイル名の大・小文字は区別しません。
+		/// </summary>
+		/// <param name="filePath">指定するファイル名(絶対パス)。</param>
+		/// <returns>取得したドキュメント。</returns>
+		IDocument GetDocument(string filePath);
 
-        /// <summary>
-        /// 既存のドキュメントを削除します。
-        /// </summary>
-        /// <param name="document">削除するドキュメント。</param>
-        void DeleteDocument(IDocument document);
+		/// <summary>
+		/// 既存のドキュメントを削除します。
+		/// </summary>
+		/// <param name="document">削除するドキュメント。</param>
+		void DeleteDocument(IDocument document);
 
-        #endregion
+		#endregion
 
         #region ノート
 

@@ -15,7 +15,7 @@ namespace LightningReview.ExtensionFramework.LightningReview
         /// エンティティをコレクションに追加します。
         /// </summary>
         /// <returns>追加したエンティティ。</returns>
-        T Add();
+	    T Add();
 
         /// <summary>
         /// エンティティをコレクションから削除します。
@@ -27,6 +27,6 @@ namespace LightningReview.ExtensionFramework.LightningReview
         /// インデックスを指定してエンティティをコレクションから削除します。
         /// </summary>
         /// <param name="index">削除するエンティティのインデックス。</param>
-        void RemoveAt(int index);
+	    void RemoveAt(int index);
     }
 }

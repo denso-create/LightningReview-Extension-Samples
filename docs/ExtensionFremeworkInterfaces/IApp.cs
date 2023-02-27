@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using LightningReview.ExtensionFramework.LightningReview;
+using LightningReview.ExtensionFramework.LightningReview.Host;
 
 namespace LightningReview.ExtensionFramework
 {
@@ -117,16 +118,28 @@ namespace LightningReview.ExtensionFramework
 		/// <returns></returns>
 		IReviewFileService GetReviewFileService();
 
-		#endregion
+        #endregion
 
-		#region 開発支援
+        #region スクリプトエンジン
 
-		/// <summary>
-		/// ユーザーが情報収集に同意している場合に限り、指定した引数の値でサーバーにログを登録する
-		/// </summary>
-		/// <param name="name">ログ名</param>
-		/// <param name="properties">ログのパラメータ</param>
-		void TrackEvent(string name, IDictionary<string, string> properties = null);
+        /// <summary>
+        /// スクリプトを実行します。
+        /// </summary>
+        /// <param name="filePath">スクリプトファイルのパス。</param>
+        /// <param name="scriptParams">スクリプトパラメータ。</param>
+        /// <returns>スクリプト実行結果。</returns>
+        RunScriptResult RunScriptFile(string filePath, IDictionary<string, object> scriptParams = null);
+
+        #endregion
+
+        #region 開発支援
+
+        /// <summary>
+        /// ユーザーが情報収集に同意している場合に限り、指定した引数の値でサーバーにログを登録する
+        /// </summary>
+        /// <param name="name">ログ名</param>
+        /// <param name="properties">ログのパラメータ</param>
+        void TrackEvent(string name, IDictionary<string, string> properties = null);
 
 		#endregion
 	}
