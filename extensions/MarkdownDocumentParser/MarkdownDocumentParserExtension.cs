@@ -1,5 +1,4 @@
-﻿#nullable enable
-using LightningReview.ExtensionFramework;
+﻿using LightningReview.ExtensionFramework;
 
 namespace DensoCreate.Lakewood.Extensions.MarkdownDocumentParser
 {

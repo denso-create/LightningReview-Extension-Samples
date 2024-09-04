@@ -1,5 +1,4 @@
-﻿#nullable enable
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -90,13 +89,13 @@ namespace DensoCreate.Lakewood.Extensions.MarkdownDocumentParser
 			var headingsStack = new Stack<HeadingBlock>();
 
 			// 前回の見出し情報
-			HeadingBlock? lastItem = null;
+			HeadingBlock lastItem = null;
 
 			// 前回のアウトラインノード
-			IOutlineNode? lastNode = null;
+			IOutlineNode lastNode = null;
 
 			// 親ノード
-			IOutlineNode? parent = null;
+			IOutlineNode parent = null;
 
 			// 最初はドキュメントが親ノードになるのでプッシュしておく
 			stack.Push(document.OutlineTree);
@@ -129,7 +128,7 @@ namespace DensoCreate.Lakewood.Extensions.MarkdownDocumentParser
 				else if ( heading.Level > lastItem.Level )
 				{
 					parent = lastNode;
-					stack.Push(parent!);
+					stack.Push(parent);
 					headingsStack.Push(lastItem);
 				}
 
@@ -168,7 +167,7 @@ namespace DensoCreate.Lakewood.Extensions.MarkdownDocumentParser
 				if (firstChild == null || lastChild == null) continue;
 				var title = firstChild != lastChild ? firstChild + lastChild : firstChild;
 
-				var node = parent!.AddChild(title);
+				var node = parent.AddChild(title);
 				lastItem = heading;
 				lastNode = node;
 			}
