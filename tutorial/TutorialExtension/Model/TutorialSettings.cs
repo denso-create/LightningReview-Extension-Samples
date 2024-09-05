@@ -1,5 +1,5 @@
 ﻿using System;
-using Newtonsoft.Json;
+using System.Text.Json.Serialization;
 
 namespace DensoCreate.TutorialExtension.Model
 {
@@ -11,13 +11,13 @@ namespace DensoCreate.TutorialExtension.Model
 		/// <summary>
 		/// メッセージ
 		/// </summary>
-		[JsonProperty("message")]
+		[JsonPropertyName("message")]
 		public string Message { get; set; } = "Hello";
 
 		/// <summary>
 		/// 日付
 		/// </summary>
-		[JsonProperty("date")]
+		[JsonPropertyName("date")]
 		public DateTime? Date { get; set; }
 	}
 }
