@@ -403,7 +403,7 @@ Events
 | `Action<Object, ReviewEventArgs>` | ReviewAfterOpen | レビューを開いた後に発生します。 | 
 | `Action<Object, ReviewEventArgs>` | ReviewAfterSave | レビューの保存後に発生します。 | 
 | `Action<Object, ReviewCancelEventArgs>` | ReviewBeforeClose | レビューが閉じる前に発生します。 | 
-| `Action<Object, ReviewCancelEventArgs>` | ReviewBeforeOpen | レビューを開く前に発生します。 | 
+| `Action<Object, ReviewBeforeOpenEventArgs>` | ReviewBeforeOpen | レビューを開く前に発生します。 | 
 | `Action<Object, ReviewCancelEventArgs>` | ReviewBeforeSave | レビューの保存前に発生します。 | 
 | `Action<Object, ReviewEventArgs>` | ReviewNew | レビューを新規作成すると発生します | 
 | `Action<Object, ReviewOnOpenEventArgs>` | ReviewOnOpen | レビューを開く処理の開始時に発生します。 | 
@@ -1203,6 +1203,22 @@ Properties
 | Type | Name | Summary | 
 | --- | --- | --- | 
 | `IReviewWindow` | ReviewWindow |  | 
+
+## `ReviewBeforeOpenEventArgs`
+
+レビューを開く前イベントのイベントパラメータ
+```csharp
+public class LightningReview.ExtensionFramework.ReviewBeforeOpenEventArgs
+    : CancelEventArgs
+
+```
+
+Properties
+
+| Type | Name | Summary | 
+| --- | --- | --- |  
+| `IReviewWindow` | ReviewWindow | レビューウィンドウを取得または設定します。 | 
+| `String` | ReviewFilePath | 開く対象のファイルパスを取得または設定します。 | 
 
 
 ## `ReviewOnOpenEventArgs`
