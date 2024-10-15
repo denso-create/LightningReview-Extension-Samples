@@ -49,6 +49,7 @@
 - [`ReviewAfterCloseEventArgs`](LightningReview.ExtensionFramework.md#reviewaftercloseeventargs)
 - [`ReviewCancelEventArgs`](LightningReview.ExtensionFramework.md#reviewcanceleventargs)
 - [`ReviewEventArgs`](LightningReview.ExtensionFramework.md#revieweventargs)
+- [`ReviewBeforeOpenEventArgs`](LightningReview.ExtensionFramework.md#reviewbeforeopeneventargs)
 - [`ReviewOnOpenEventArgs`](LightningReview.ExtensionFramework.md#reviewonopeneventargs)
 - [`ReviewOnSaveEventArgs`](LightningReview.ExtensionFramework.md#reviewonsaveeventargs)
 - [`ThemeHelper`](LightningReview.ExtensionFramework.md#themehelper)

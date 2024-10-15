@@ -48,7 +48,7 @@ namespace LightningReview.ExtensionFramework
 		/// <summary>
 		/// レビューを開く前に発生します。
 		/// </summary>
-		event Action<object, ReviewCancelEventArgs> ReviewBeforeOpen;
+		event Action<object, ReviewBeforeOpenEventArgs> ReviewBeforeOpen;
 
 		/// <summary>
 		/// レビューを開く処理の開始時に発生します。
