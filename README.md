@@ -19,6 +19,6 @@ Lightning Review の拡張機能開発者向けのサンプルを公開してい
 
 ## バージョンごとの拡張機能APIの変更点
 バージョンごとの拡張機能APIの変更点は以下を参照ください。  
-[V2.5.2の変更点](https://github.com/denso-create/LightningReview-Extension-Samples/tree/main/version%20history)
+[V2.5.2の変更点](https://github.com/denso-create/LightningReview-Extension-Samples/blob/main/version%20history/Changes%20in%20V2.5.2/V2.5.2.md)
 
 Copyright (c) 2019-2022 DENSO CREATE INC. All rights reserved.
