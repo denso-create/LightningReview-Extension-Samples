@@ -10,7 +10,15 @@ Lightning Review の拡張機能開発者向けのサンプルを公開してい
 * これらのサンプルは Lightning Review の使用許諾におけるサンプル扱いとなっています。
 * サンプルやドキュメントの更新によって関連ドキュメントへのリンク切れが発生する場合があります。予めご了承ください。
 
-## サンプルの利用方法
-各フォルダにある readme をご確認の上ご利用ください。
+## サンプルの紹介
+以下のフォルダにサンプルの拡張機能のソースコードを格納しています。  
+- [TutorialExtension](https://github.com/denso-create/LightningReview-Extension-Samples/tree/main/tutorial)
+  - 拡張機能開発のチュートリアルとして、メニューから設定したメッセージを指摘内容に含んだ指摘を2件追加する拡張機能のサンプルです。
+- [MarkdownDocumentParser](https://github.com/denso-create/LightningReview-Extension-Samples/tree/main/extensions/MarkdownDocumentParser)
+  - Markdown形式のファイルに対して、アウトライン解析を行う拡張機能のサンプルです。
+
+## バージョンごとの拡張機能APIの変更点
+バージョンごとの拡張機能APIの変更点は以下を参照ください。  
+[V2.5.2の変更点](https://github.com/denso-create/LightningReview-Extension-Samples/tree/main/version%20history)
 
 Copyright (c) 2019-2022 DENSO CREATE INC. All rights reserved.
