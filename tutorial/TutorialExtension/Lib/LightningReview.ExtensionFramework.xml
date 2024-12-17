@@ -17,9 +17,9 @@
             1週間の日数を表す値
             </summary>
         </member>
-        <member name="F:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.TWO_WEEKS_NUMBER">
+        <member name="F:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.DISPLAY_WEEK_NUMBER">
             <summary>
-            2週間の日数を表す値
+            一度に表示する週の数
             </summary>
         </member>
         <member name="F:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.EMPTY_COUNT">
@@ -79,30 +79,40 @@
             設定している日付がnullである場合に表示するテキスト
             </summary>
         </member>
+        <member name="P:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.MonthFirstDay">
+            <summary>
+            月の始めの日
+            </summary>
+        </member>
+        <member name="E:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.PropertyChanged">
+            <summary>
+            プロパティ変更通知イベント
+            </summary>
+        </member>
         <member name="M:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.#ctor">
             <summary>
             コンストラクタ
             </summary>
         </member>
-        <member name="M:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.SetTwoWeeksDateFromTargetDate(System.Nullable{System.DateTime})">
+        <member name="M:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.SetMonthDateFromTargetDate(System.Nullable{System.DateTime})">
             <summary>
-            対象日を含む週と次週の日付をカレンダーコレクションに設定する
+            対象日を含む月の日付をカレンダーコレクションに設定する
             </summary>
             <param name="targetDate">基準としたい対象日</param>
         </member>
-        <member name="M:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.SetAntetiorTwoWeeksDate">
+        <member name="M:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.SetPreviousMonthDate">
             <summary>
-            現在表示しているよりも前の2週間の日付をカレンダーコレクションに設定する
+            先月の日付をカレンダーコレクションに設定する
             </summary>
         </member>
-        <member name="M:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.SetPosteriorTwoWeeksDate">
+        <member name="M:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.SetNextMonthDate">
             <summary>
-            現在表示しているよりも後の2週間の日付をカレンダーコレクションに設定する
+            来月分の日付をカレンダーコレクションに設定する
             </summary>
         </member>
         <member name="M:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.CreateCalendar">
             <summary>
-            選択されている日付を含む週と次週のカレンダーを作成し、日付を選択状態にする
+            選択されている日付を含む月のカレンダーを作成し、日付を選択状態にする
             日付が選択されていなければ、未選択状態とする
             </summary>
         </member>
@@ -111,6 +121,12 @@
             指定した日付を選択状態にする
             </summary>
             <param name="targetDate"></param>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.OnPropertyChanged(System.String)">
+            <summary>
+            プロパティ変更を通知する
+            </summary>
+            <param name="propertyName"></param>
         </member>
         <member name="M:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.m_DateTimeSettingButton_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
@@ -143,6 +159,13 @@
         <member name="M:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.m_ClearButton_Click(System.Object,System.Windows.RoutedEventArgs)">
             <summary>
             クリアボタン押下時のハンドラ
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.m_TodayButton_Click(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+            今日の日付を設定するボタン押下時のハンドラ
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
@@ -189,11 +212,17 @@
             当日の日付か
             </summary>
         </member>
-        <member name="M:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.DateItem.#ctor(System.DateTime)">
+        <member name="P:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.DateItem.IsDisplayedMonth">
+            <summary>
+            表示している月の日付か
+            </summary>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.DateItem.#ctor(System.DateTime,System.DateTime)">
             <summary>
             コンストラクタ
             </summary>
-            <param name="dateTime"></param>
+            <param name="dateTime">設定する年月日</param>
+            <param name="displayedMonth">カレンダーで表示している年月</param>
         </member>
         <member name="M:LightningReview.ExtensionFramework.Framework.Controls.DateTimePicker.InitializeComponent">
             <summary>
@@ -363,6 +392,34 @@
             <summary>
             チェック状態の切り替えが可能なメニュー
             </summary>
+        </member>
+        <member name="T:LightningReview.ExtensionFramework.Framework.RemoveMenuInfo">
+            <summary>
+            削除するメニューの情報
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.Framework.RemoveMenuInfo.Location">
+            <summary>
+            ロケーション
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.Framework.RemoveMenuInfo.ParentMenuName">
+            <summary>
+            親メニュー名
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.Framework.RemoveMenuInfo.MenuName">
+            <summary>
+            削除するメニュー名
+            </summary>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.Framework.RemoveMenuInfo.#ctor(System.String,System.String,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="location">ロケーション</param>
+            <param name="parentMenuName">親メニュー名</param>
+            <param name="menuName">削除するメニュー名</param>
         </member>
         <member name="T:LightningReview.ExtensionFramework.Framework.ToolBarItemDisplayStyle">
             <summary>
@@ -1004,16 +1061,37 @@
             <param name="sender"></param>
             <param name="args"></param>
         </member>
-        <member name="M:LightningReview.ExtensionFramework.Host.AppBase.RaiseReviewOpen(System.Object,LightningReview.ExtensionFramework.ReviewEventArgs)">
+        <member name="M:LightningReview.ExtensionFramework.Host.AppBase.RaiseReviewBeforeOpen(System.Object,LightningReview.ExtensionFramework.ReviewBeforeOpenEventArgs)">
             <summary>
-            レビューファイルを開く時のイベントを発行する
+            レビューを開く前のイベントを発行する
             </summary>
             <param name="sender"></param>
             <param name="args"></param>
         </member>
-        <member name="M:LightningReview.ExtensionFramework.Host.AppBase.RaiseReviewBeforeSave(System.Object,LightningReview.ExtensionFramework.ReviewBeforeSaveEventArgs)">
+        <member name="M:LightningReview.ExtensionFramework.Host.AppBase.RaiseReviewOnOpen(System.Object,LightningReview.ExtensionFramework.ReviewOnOpenEventArgs)">
+            <summary>
+            レビューを開く処理の開始時のイベントを発行する
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.Host.AppBase.RaiseReviewAfterOpen(System.Object,LightningReview.ExtensionFramework.ReviewEventArgs)">
+            <summary>
+            レビューを開く処理の開始時のイベントを発行する
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.Host.AppBase.RaiseReviewBeforeSave(System.Object,LightningReview.ExtensionFramework.ReviewCancelEventArgs)">
             <summary>
             レビューの保存前イベントを発行する
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.Host.AppBase.RaiseReviewOnSave(System.Object,LightningReview.ExtensionFramework.ReviewOnSaveEventArgs)">
+            <summary>
+            レビューの保存開始イベントを発行する
             </summary>
             <param name="sender"></param>
             <param name="args"></param>
@@ -1095,6 +1173,13 @@
             <param name="sender"></param>
             <param name="args"></param>
         </member>
+        <member name="M:LightningReview.ExtensionFramework.Host.AppBase.RaiseIssueLinkBeforeJump(System.Object,LightningReview.ExtensionFramework.IssueLinkBeforeJumpEventArgs)">
+            <summary>
+            指摘リンクにジャンプする前のイベントを発行する
+            </summary>
+            <param name="sender"></param>
+            <param name="args"></param>
+        </member>
         <member name="T:LightningReview.ExtensionFramework.Host.DocumentParserManager">
             <summary>
             ドキュメントパーサーの管理クラス
@@ -1159,7 +1244,12 @@
             IAppBase実装のベースクラス
             </summary>
         </member>
-        <member name="M:LightningReview.ExtensionFramework.Host.ExtensionAppBase.#ctor">
+        <member name="P:LightningReview.ExtensionFramework.Host.ExtensionAppBase.IsLoaded">
+            <summary>
+            読み込まれたか
+            </summary>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.Host.ExtensionAppBase.#ctor(System.Windows.Threading.Dispatcher)">
             <summary>
             コンストラクタ
             </summary>
@@ -1183,6 +1273,25 @@
             <param name="Extension">エクステンション</param>
             <returns>ツールバーに追加するアイテムのビルダー</returns>
         </member>
+        <member name="M:LightningReview.ExtensionFramework.Host.ExtensionAppBase.RemoveMenu(System.String,System.String,System.String)">
+            <summary>
+            ロケーションと親メニュー名を指定して、指定した名前のメニューを削除します。
+            親メニュー名の指定がない場合は、ロケーションに対応するメニューから指定した名前のメニューを削除します。
+            </summary>
+            <param name="location">ロケーション。</param>
+            <param name="menuName">削除するメニュー名。</param>
+            <param name="parentMenuName">親メニュー名。</param>
+        </member>
+        <member name="F:LightningReview.ExtensionFramework.Host.ExtensionAppBase.m_RemoveMenuInfos">
+            <summary>
+            削除するメニュー情報一覧
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.Host.ExtensionAppBase.RemoveMenuInfos">
+            <summary>
+            削除するメニュー情報一覧
+            </summary>
+        </member>
         <member name="P:LightningReview.ExtensionFramework.Host.ExtensionAppBase.MenuManager">
             <summary>
             メニューマネージャー
@@ -1192,6 +1301,13 @@
             <summary>
             ツールバーに追加するアイテムを管理するマネージャー
             </summary>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.Host.ExtensionAppBase.RegisterAfterLoadedAction(System.Action)">
+            <summary>
+            拡張機能読み込み後のアクションを登録する。
+            既に拡張機能が読み込み済みであれば即時実行します。
+            </summary>
+            <param name="action">拡張機能読み込み後に実行するアクション</param>
         </member>
         <member name="M:LightningReview.ExtensionFramework.Host.ExtensionAppBase.BindUI(System.String,System.Windows.UIElement,System.Windows.Controls.Menu)">
             <summary>
@@ -1354,16 +1470,37 @@
             - V1.8.0からV1.8.1のバージョンアップでBeginEdit(bool)の引数が変わったため
             </remarks>
         </member>
+        <member name="P:LightningReview.ExtensionFramework.Host.ExtensionManager.App">
+            <summary>
+            ホストとなるアプリケーション
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.Host.ExtensionManager.AppDispatcher">
+            <summary>
+            アプリケーションのディスパッチャー
+            </summary>
+        </member>
         <member name="P:LightningReview.ExtensionFramework.Host.ExtensionManager.LoadedExtensions">
             <summary>
             アクティベート済みのエクステンション
             </summary>
         </member>
-        <member name="M:LightningReview.ExtensionFramework.Host.ExtensionManager.#ctor(LightningReview.ExtensionFramework.IHostApp)">
+        <member name="P:LightningReview.ExtensionFramework.Host.ExtensionManager.IsLoaded">
+            <summary>
+            エクステンションの読み込みが完了したか
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.Host.ExtensionManager.AfterLoadedActions">
+            <summary>
+            ロード完了後に実行するアクション一覧
+            </summary>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.Host.ExtensionManager.#ctor(LightningReview.ExtensionFramework.IHostApp,System.Windows.Threading.Dispatcher)">
             <summary>
             コンストラクタ
             </summary>
-            <param name="app"></param>
+            <param name="app">ホストとなるアプリケーション</param>
+            <param name="dispacher">アプリケーションのディスパッチャー</param>
         </member>
         <member name="M:LightningReview.ExtensionFramework.Host.ExtensionManager.LoadExtensions">
             <summary>
@@ -1378,6 +1515,13 @@
             <summary>
             アクティベート済みのエクステンションをディアクティベートする
             </summary>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.Host.ExtensionManager.RegisterAfterLoadedAction(System.Action)">
+            <summary>
+            拡張機能読み込み後のアクションを登録する。
+            既に拡張機能が読み込み済みであれば即時実行します。
+            </summary>
+            <param name="action">拡張機能読み込み後に実行するアクション</param>
         </member>
         <member name="M:LightningReview.ExtensionFramework.Host.ExtensionManager.IsNotLoadedExtension(LightningReview.ExtensionFramework.IExtensionBase)">
             <summary>
@@ -1630,6 +1774,50 @@
             trueを設定すると、イベントハンドラの処理が終了した後、何も実行されません。
             </remarks>
         </member>
+        <member name="T:LightningReview.ExtensionFramework.IssueLinkBeforeJumpEventArgs">
+            <summary>
+            指摘リンクへのジャンプ前イベントのイベントパラメーター
+            </summary>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.IssueLinkBeforeJumpEventArgs.#ctor(LightningReview.ExtensionFramework.IReviewWindow,LightningReview.ExtensionFramework.IIssue,System.String,System.String)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="reviewWindow">レビューウィンドウ</param>
+            <param name="issue">指摘</param>
+            <param name="targetJumpPath">ジャンプ対象のパス</param>
+            <param name="issueLinkName">ジャンプ対象の指摘リンクの名前</param>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.IssueLinkBeforeJumpEventArgs.ReviewWindow">
+            <summary>
+            レビューウィンドウを取得します。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.IssueLinkBeforeJumpEventArgs.Issue">
+            <summary>
+            指摘リンクが紐づいている指摘を取得します。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.IssueLinkBeforeJumpEventArgs.TargetJumpPath">
+            <summary>
+            ジャンプ対象となるパスを取得または設定します。
+            </summary>
+            <remarks>イベントハンドラで、このプロパティを変更するとジャンプする対象のパスを変更できます。</remarks>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.IssueLinkBeforeJumpEventArgs.IssueLinkName">
+            <summary>
+            ジャンプ対象の指摘リンクの名前を取得します。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.IssueLinkBeforeJumpEventArgs.Handled">
+            <summary>
+            イベントが処理されたかどうかを取得または設定します。
+            </summary>
+            <remarks>
+            デフォルトではfalseが設定され、イベントハンドラの処理が終了した後、TargetJumpPathを使って本体側のジャンプが実行されます。
+            trueを設定すると、イベントハンドラの処理が終了した後、何も実行されません。
+            </remarks>
+        </member>
         <member name="T:LightningReview.ExtensionFramework.IssueLocationBeforeJumpEventArgs">
             <summary>
             指摘箇所へのジャンプの前イベントのイベントパラメータです。
@@ -1718,6 +1906,77 @@
             trueを設定すると、イベントハンドラの処理が終了した後、何も実行されません。
             </remarks>
         </member>
+        <member name="T:LightningReview.ExtensionFramework.ReviewBeforeOpenEventArgs">
+            <summary>
+            レビューを開く前イベントのイベントパラメータ
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.ReviewBeforeOpenEventArgs.ReviewWindow">
+            <summary>
+            レビューウィンドウを取得または設定します。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.ReviewBeforeOpenEventArgs.ReviewFilePath">
+            <summary>
+            開くレビューファイルのパスを取得または設定します。
+            </summary>
+        </member>
+        <member name="T:LightningReview.ExtensionFramework.ReviewOnOpenEventArgs">
+            <summary>
+            レビューの開く処理の開始時イベントのイベントパラメータ
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.ReviewOnOpenEventArgs.ReviewWindow">
+            <summary>
+            レビューウィンドウを取得または設定します。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.ReviewOnOpenEventArgs.SavingFilePath">
+            <summary>
+            開く対象のファイルパスを取得または設定します。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.ReviewOnOpenEventArgs.Handled">
+            <summary>
+            イベントが処理されたかどうかを取得または設定します。
+            </summary>
+            <remarks>
+            デフォルトではfalseが設定され、イベントハンドラの処理が終了した後、本体側の開く処理を実行します。
+            trueを設定すると、イベントハンドラの処理が終了した後、本体側の開く処理は実行しません。
+            </remarks>
+        </member>
+        <member name="T:LightningReview.ExtensionFramework.ReviewOnSaveEventArgs">
+            <summary>
+            レビューの保存開始時イベントのイベントパラメータ
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.ReviewOnSaveEventArgs.ReviewWindow">
+            <summary>
+            レビューウィンドウを取得または設定します。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.ReviewOnSaveEventArgs.IsOverwrite">
+            <summary>
+            上書き保存かどうかを取得します。
+            上書き保存はtrue、名前を付けて保存はfalseです。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.ReviewOnSaveEventArgs.Handled">
+            <summary>
+            イベントが処理されたかどうかを取得または設定します。
+            </summary>
+            <remarks>
+            デフォルトではfalseが設定され、イベントハンドラの処理が終了した後、本体側の保存処理を実行します。
+            trueを設定すると、イベントハンドラの処理が終了した後、本体側の保存処理は実行しません。
+            上書き保存の場合は、上書き保存の処理を実行しません。名前を付けて保存の場合は、[名前を付けて保存]ダイアログの表示を含めた処理を実行しません。
+            </remarks>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.ReviewOnSaveEventArgs.#ctor(System.Boolean)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="isOverwrite">上書き保存か。</param>
+        </member>
         <member name="T:LightningReview.ExtensionFramework.Extension">
             <summary>
             Lightning Reviewのエクステンション
@@ -1766,12 +2025,41 @@
             <param name="decrypt">値を復号化するか</param>
             <returns>取得する値</returns>
         </member>
+        <member name="T:LightningReview.ExtensionFramework.LightningReview.Host.RunScriptResult">
+            <summary>
+            スクリプトの実行結果オブジェクトです。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.Host.RunScriptResult.IsSuccess">
+            <summary>
+            実行に成功したかどうかを取得または設定します。
+            </summary>
+            <value>
+            実行に成功したかどうか。
+            </value>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.Host.RunScriptResult.ErrorMessage">
+            <summary>
+            エラーメッセージを取得または設定します。
+            </summary>
+            <value>
+            エラーメッセージ。
+            </value>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.Host.RunScriptResult.ReturnValue">
+            <summary>
+            戻り値を取得または設定します。
+            </summary>
+            <value>
+            戻り値。
+            </value>
+        </member>
         <member name="T:LightningReview.ExtensionFramework.LightningReview.ICustomField`1">
             <summary>
             カスタムフィールドの編集を実現するインターフェース。
             </summary>
         </member>
-        <member name="P:LightningReview.ExtensionFramework.LightningReview.ICustomField`1.Defenition">
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.ICustomField`1.Definition">
             <summary>
             カスタムフィールドの定義を取得します。
             </summary>
@@ -1793,7 +2081,7 @@
             カスタムロールの編集を実現するインターフェース。
             </summary>
         </member>
-        <member name="P:LightningReview.ExtensionFramework.LightningReview.ICustomRole.Defenition">
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.ICustomRole.Definition">
             <summary>
             カスタムロールの定義を取得します。
             </summary>
@@ -1805,28 +2093,24 @@
         </member>
         <member name="T:LightningReview.ExtensionFramework.LightningReview.IDocumentLink">
             <summary>
-            ドキュメントに関連づくリンクの編集を実現するインタフェースです。
+            ドキュメントの関連リンクの編集を実現するインタフェースです。
             </summary>
         </member>
         <member name="P:LightningReview.ExtensionFramework.LightningReview.IDocumentLink.Name">
             <summary>
-            ドキュメントに関連づくリンクの名前です。
+            ドキュメントの関連リンクの名前です。
             </summary>
             <value>リンク名の文字列。</value>
         </member>
         <member name="P:LightningReview.ExtensionFramework.LightningReview.IDocumentLink.Path">
             <summary>
-            ドキュメントに関連づくリンクのパスです。
+            ドキュメントの関連リンクのパスです。
             </summary>
-            <remarks>
-            リンクのパスに相対パスが設定されている場合は、相対パスのままでは利用できないため、レビューファイルのパスと相対パスを結合したパスを返します。
-            絶対パスが設定されている場合は、そのまま返します。
-            </remarks>
-            <value>リンクのパスの文字列。</value>
+            <value>リンクの絶対パスの文字列。</value>
         </member>
         <member name="P:LightningReview.ExtensionFramework.LightningReview.IDocumentLink.Tag">
             <summary>
-            ドキュメントに関連づくリンクのタグです。
+            ドキュメントの関連リンクのタグです。
             </summary>
             <remarks>
             タグはAPIでのみ設定可能です。
@@ -1914,6 +2198,33 @@
             イメージ保存先のテンポラリフォルダのパス
             </summary>
         </member>
+        <member name="T:LightningReview.ExtensionFramework.LightningReview.IIssueLink">
+            <summary>
+            指摘の関連リンクの編集を実現するインタフェースです。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.IIssueLink.Name">
+            <summary>
+            指摘の関連リンクの名前です。
+            </summary>
+            <value>リンク名の文字列。</value>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.IIssueLink.Path">
+            <summary>
+            指摘の関連リンクのパスです。
+            </summary>
+            <value>リンクの絶対パスの文字列。</value>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.IIssueLink.Tag">
+            <summary>
+            指摘の関連リンクのタグです。
+            </summary>
+            <remarks>
+            タグはAPIでのみ設定可能です。
+            UIでは設定することができません。
+            </remarks>
+            <value>リンクのタグの文字列。</value>
+        </member>
         <member name="T:LightningReview.ExtensionFramework.LightningReview.IMemberCustomFieldDefinition">
             <summary>
             メンバのカスタムフィールド定義の編集を実現するインタフェース。
@@ -1948,107 +2259,223 @@
             フィールドを使用するか否かを取得または設定します。
             </summary>
         </member>
+        <member name="T:LightningReview.ExtensionFramework.LightningReview.INote">
+            <summary>
+            ノートの編集を実現するインタフェースです。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.INote.Name">
+            <summary>
+            ノート名を取得・設定します。
+            </summary>
+            <value>ノート名の文字列。空文字のみ、スペースのみ、nullを設定した場合は、何もしません。</value>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.INote.Content">
+            <summary>
+            ノートの内容を取得・設定します。
+            </summary>
+            <value>ノートの内容の文字列。nullを設定した場合は、何もしません。</value>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.INote.ContentType">
+            <summary>
+            ノートの内容の種類を取得・設定します。
+            </summary>
+            <value>
+            ノートの内容の種類の文字列。
+            本プロパティの値域と、それぞれの値に対応する種類を以下に示します。
+            [値域]      [値に対応する種類]
+            Text        テキスト
+            Markdown    マークダウン
+            </value>
+            <exception cref="T:LightningReview.ExtensionFramework.UserException">値域外の文字列を設定しています。</exception>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.INote.GroupName">
+            <summary>
+            ノートが所属するノートグループ名を取得・設定します。
+            </summary>
+            <remarks>
+            設定した名前のノートグループが複数存在する場合は、同名のノートグループのうち先頭のノートグループに所属します。
+            </remarks>
+            <value>
+            ノートが所属するノートグループ名の文字列。
+            ノートがノートグループに所属していない場合はnullです。
+            </value>
+            <exception cref="T:LightningReview.ExtensionFramework.UserException">存在しないノートグループ名を設定しています。</exception>
+        </member>
+        <member name="T:LightningReview.ExtensionFramework.LightningReview.INoteGroup">
+            <summary>
+            ノートグループの編集を実現するインタフェースです。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.INoteGroup.Name">
+            <summary>
+            ノートグループ名を取得・設定します。
+            </summary>
+            <value>ノートグループ名の文字列。空文字のみ、スペースのみ、nullを設定した場合は、何もしません。</value>
+        </member>
         <member name="T:LightningReview.ExtensionFramework.LightningReview.IReview">
             <summary>
-            レビューの操作を実現するインターフェース
+            レビューの操作を実現するインターフェースです。
             </summary>
         </member>
         <member name="P:LightningReview.ExtensionFramework.LightningReview.IReview.FilePath">
             <summary>
-            レビューファイルの絶対パスです
+            レビューファイルの絶対パスを取得します。
             </summary>
+            <value>レビューファイルの絶対パスの文字列。</value>
         </member>
         <member name="P:LightningReview.ExtensionFramework.LightningReview.IReview.Documents">
             <summary>
-            このレビューファイルに関連づくドキュメントのコレクション
+            レビューファイルに関連づくドキュメントの一覧を取得します。
             </summary>
+            <value>レビューファイルに関連づくドキュメントの一覧。</value>
         </member>
         <member name="P:LightningReview.ExtensionFramework.LightningReview.IReview.IsDirty">
             <summary>
-            レビューが変更されているか
+            前回の保存時からレビューが変更されたかどうかを取得します。
             </summary>
+            <value>レビューが変更されたかどうか。</value>
         </member>
         <member name="P:LightningReview.ExtensionFramework.LightningReview.IReview.ReviewSetting">
             <summary>
-            レビューの設定オブジェクトを戻します
+            レビューの設定オブジェクトを取得します。
             </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.IReview.NoteGroups">
+            <summary>
+            レビューファイルに関連づくノートグループの一覧を取得します。
+            </summary>
+            <value>ノートグループの一覧。</value>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.IReview.Notes">
+            <summary>
+            レビューファイルに関連づくノートの一覧を取得します。
+            </summary>
+            <value>ノートの一覧。</value>
         </member>
         <member name="M:LightningReview.ExtensionFramework.LightningReview.IReview.AddIssue(LightningReview.ExtensionFramework.IDocument)">
             <summary>
-            対象のドキュメントに指摘を追加する
+            対象のドキュメントに指摘を追加します。
             </summary>
-            <param name="document">ドキュメント</param>
-            <returns>指摘</returns>
+            <param name="document">追加対象のドキュメント。</param>
+            <returns>追加した指摘。</returns>
         </member>
         <member name="M:LightningReview.ExtensionFramework.LightningReview.IReview.AddIssue(LightningReview.ExtensionFramework.IDocument,System.String)">
             <summary>
-            対象のドキュメントのアウトラインパスで指定したアウトラインに指摘を追加する
+            対象のドキュメントのアウトラインパスで指定したアウトラインに指摘を追加します。
             </summary>
-            <param name="document">ドキュメント</param>
-            <param name="outlinePath">アウトラインパス</param>
-            <returns>指摘</returns>
+            <param name="document">追加対象のドキュメント。</param>
+            <param name="outlinePath">指定するアウトラインパス。</param>
+            <returns>追加した指摘。</returns>
         </member>
         <member name="M:LightningReview.ExtensionFramework.LightningReview.IReview.AddIssue(LightningReview.ExtensionFramework.IOutlineNode)">
             <summary>
-            対象のアウトラインに指摘を追加する
+            対象のアウトラインに指摘を追加します。
             </summary>
-            <param name="node">アウトライン</param>
-            <returns>指摘</returns>
+            <param name="node">追加対象のアウトライン。</param>
+            <returns>追加した指摘。</returns>
         </member>
         <member name="M:LightningReview.ExtensionFramework.LightningReview.IReview.GetAllIssues">
             <summary>
-            レビューファイルに関連づく指摘を取得する
+            レビューファイルに関連づく指摘の一覧を取得します。
             </summary>
-            <returns>指摘</returns>
+            <returns>取得した指摘の一覧。</returns>
         </member>
         <member name="M:LightningReview.ExtensionFramework.LightningReview.IReview.GetIssue(System.String,System.Boolean)">
             <summary>
-            指摘のIdを指定して指摘を取得する
+            指摘のIdを指定して指摘を取得します。
             </summary>
-            <param name="issueId">指摘ID</param>
-            <param name="globalId">ローカルIDで検索：false, グローバルIDで検索：true</param>
-            <returns>指摘</returns>
+            <param name="issueId">指定する指摘ID。</param>
+            <param name="globalId">指定する指摘IDの分類。グローバルIDで検索する場合はtrue、ローカルIDで検索する場合はfalseです。</param>
+            <returns>取得した指摘。</returns>
         </member>
         <member name="M:LightningReview.ExtensionFramework.LightningReview.IReview.DeleteIssue(LightningReview.ExtensionFramework.IIssue)">
             <summary>
-            指摘を削除する
+            指摘を削除します。
             </summary>
-            <param name="issue">指摘</param>
+            <param name="issue">削除する指摘。</param>
         </member>
         <member name="M:LightningReview.ExtensionFramework.LightningReview.IReview.DeleteIssueById(System.String,System.Boolean)">
             <summary>
-            指定された指摘IDで指摘を削除する
+            指摘のIdを指定して指摘を削除します。
             </summary>
-            <param name="issueId">指摘ID</param>
-            <param name="globalId">ローカルIDで削除：false, グローバルIDで削除：true</param>
+            <param name="issueId">指定する指摘ID。</param>
+            <param name="globalId">指定する指摘IDの分類。グローバルIDで削除する場合はtrue、ローカルIDで削除する場合はfalseです。</param>
         </member>
         <member name="M:LightningReview.ExtensionFramework.LightningReview.IReview.AddDocument">
             <summary>
-            このコンテキストが保持しているレビューデータにドキュメントを追加する
+            このコンテキストが保持しているレビューデータにドキュメントを追加します。
             </summary>
-            <returns>ドキュメント</returns>
+            <returns>追加されたドキュメント。</returns>
         </member>
         <member name="M:LightningReview.ExtensionFramework.LightningReview.IReview.AddDocument(System.String)">
             <summary>
-            ファイル名を指定して、新規にドキュメントを追加する。
+            ファイル名を指定して、新規にドキュメントを追加します。
             作成したドキュメントは、このレビューのドキュメントとして登録されます。
             </summary>
-            <param name="filePath">ファイルパス</param>
-            <returns>ドキュメント</returns>
+            <param name="filePath">指定するファイルパス。</param>
+            <returns>追加されたドキュメント。</returns>
         </member>
         <member name="M:LightningReview.ExtensionFramework.LightningReview.IReview.GetDocument(System.String)">
             <summary>
-            指定したファイル名のドキュメントを戻します。
+            指定したファイル名のドキュメントを取得します。
             ファイル名の大・小文字は区別しません。
             </summary>
-            <param name="filePath">ファイル名(絶対パス)</param>
-            <returns>ドキュメント</returns>
+            <param name="filePath">指定するファイル名(絶対パス)。</param>
+            <returns>取得したドキュメント。</returns>
         </member>
         <member name="M:LightningReview.ExtensionFramework.LightningReview.IReview.DeleteDocument(LightningReview.ExtensionFramework.IDocument)">
             <summary>
-            既存のドキュメントを削除する
+            既存のドキュメントを削除します。
             </summary>
-            <param name="document">削除するドキュメント</param>
+            <param name="document">削除するドキュメント。</param>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.LightningReview.IReview.AddNoteGroup(System.String)">
+            <summary>
+            ノートグループを追加します。
+            </summary>
+            <param name="name">
+            追加するノートグループの名前。
+            空文字のみ、スペースのみ、nullを指定した場合は、既定の名前で追加します。
+            </param>
+            <returns>追加したノートグループ。</returns>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.LightningReview.IReview.DeleteNoteGroup(LightningReview.ExtensionFramework.LightningReview.INoteGroup)">
+            <summary>
+            ノートグループを削除します。
+            </summary>
+            <param name="noteGroup">削除するノートグループ。</param>
+            <exception cref="T:LightningReview.ExtensionFramework.UserException">削除対象のノートグループが存在しません。</exception>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.LightningReview.IReview.AddNote(System.String,System.String,System.String)">
+            <summary>
+            ノートを追加します。
+            ノートの内容の種類と所属するノートグループ名を指定して追加できます。
+            </summary>
+            <remarks>
+            指定した名前のノートグループが複数存在する場合は、同名のノートグループのうち先頭のノートグループに追加します。
+            </remarks>
+            <param name="name">
+            追加するノートの名前。
+            空文字のみ、スペースのみ、nullを指定した場合は、既定の名前で追加します。
+            </param>
+            <param name="contentType">
+            指定するノートの内容の種類。
+            引数の値域と、それぞれの値に対応する種類を以下に示します。
+            [値域]      [値に対応する種類]
+            Text        テキスト
+            Markdown    マークダウン
+            </param>
+            <param name="groupName">指定するノートグループの名前。nullの場合はノートグループに属しません。</param>
+            <returns>追加したノート。</returns>
+            <exception cref="T:LightningReview.ExtensionFramework.UserException">指定されたノートの内容の種類、またはノートグループが存在しません。</exception>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.LightningReview.IReview.DeleteNote(LightningReview.ExtensionFramework.LightningReview.INote)">
+            <summary>
+            ノートを削除します。
+            </summary>
+            <param name="note">削除するノート。</param>
+            <exception cref="T:LightningReview.ExtensionFramework.UserException">削除対象のノートが存在しません。</exception>
         </member>
         <member name="T:LightningReview.ExtensionFramework.LightningReview.IReviewCustomFieldDefinition">
             <summary>
@@ -2088,7 +2515,6 @@
             General           基本設定
             Project           プロジェクト
             PlanAndActual     計画と実績 
-            ApprovalStatus    承認ステータス
             </value>
         </member>
         <member name="T:LightningReview.ExtensionFramework.LightningReview.IReviewFileService">
@@ -2126,6 +2552,67 @@
             レビューを閉じます
             </summary>
             <param name="review">レビュー</param>
+        </member>
+        <member name="T:LightningReview.ExtensionFramework.LightningReview.IStatusItem">
+            <summary>
+            ステータスの編集を実現するインターフェース。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.IStatusItem.Name">
+            <summary>
+            ステータスの名前を取得または設定します。
+            他の選択肢と重複していても構いませんが、空文字列にはできません。
+            空文字列を指定した場合は、元の値に戻します。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.IStatusItem.SelectedOn">
+            <summary>
+            設定日を取得または設定します。
+            ステータスを設定した日付が自動入力されます。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.IStatusItem.SelectedBy">
+            <summary>
+            設定者名を取得または設定します。
+            ステータスを設定したユーザー名が自動入力されます。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.IStatusItem.IsClosed">
+            <summary>
+            クローズを意味するステータスかを取得または設定します。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.IStatusItem.IsSelected">
+            <summary>
+            このステータスが、現在のステータスとして設定されているかを取得・設定します。
+            この値をtrueに変更した場合、他のすべてのステータスの値はfalseになります。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.LightningReview.IStatusItem.Color">
+            <summary>
+            ステータスの色を取得または設定します。デフォルトでは[None]が設定されています。
+            </summary>
+            <value>
+            色の種類の文字列。
+            本プロパティの値域と、それぞれの値に対応する種類を以下に示します。
+            [値域]      [値に対応する種類]
+            None        なし
+            Red         赤
+            Orange      橙
+            Yellow      黄
+            Green       緑
+            Blue        青
+            Purple      紫
+            Gray        灰
+            LightRed    薄い赤
+            LightOrange 薄い橙
+            LightYellow 薄い黄
+            LightGreen  薄い緑
+            LightBlue   薄い青
+            LightPurple 薄い紫
+            LightGray   薄い灰
+            </value>
+            <exception cref="T:LightningReview.ExtensionFramework.UserException">値域外の文字列を設定しています。</exception>
         </member>
         <member name="T:LightningReview.ExtensionFramework.LightningReview.IUndoTransaction">
             <summary>
@@ -2175,15 +2662,38 @@
             レビューを新規作成すると発生します
             </summary>
         </member>
-        <member name="E:LightningReview.ExtensionFramework.IApp.ReviewOpen">
+        <member name="E:LightningReview.ExtensionFramework.IApp.ReviewBeforeOpen">
             <summary>
-            レビューファイルを開くと発生します
+            レビューを開く前に発生します。
+            </summary>
+        </member>
+        <member name="E:LightningReview.ExtensionFramework.IApp.ReviewOnOpen">
+            <summary>
+            レビューを開く処理の開始時に発生します。
+            </summary>
+            <remarks>
+            独自のファイルの読み込み処理を実装する場合は、このイベントのイベントハンドラで実装してください。
+            ReviewOnOpenEventArgs.Handledプロパティをtrueにすると、開く処理を上書きできます。
+            </remarks>
+        </member>
+        <member name="E:LightningReview.ExtensionFramework.IApp.ReviewAfterOpen">
+            <summary>
+            レビューを開いた後に発生します。
             </summary>
         </member>
         <member name="E:LightningReview.ExtensionFramework.IApp.ReviewBeforeSave">
             <summary>
             レビューの保存前に発生します。
             </summary>
+        </member>
+        <member name="E:LightningReview.ExtensionFramework.IApp.ReviewOnSave">
+            <summary>
+            レビューの保存開始時に発生します。
+            </summary>
+            <remarks>
+            独自の保存処理を実装する場合は、このイベントのイベントハンドラで実装してください。
+            ReviewOnSaveEventArgs.Handledプロパティをtrueにすると、保存処理を上書きできます。
+            </remarks>
         </member>
         <member name="E:LightningReview.ExtensionFramework.IApp.ReviewAfterSave">
             <summary>
@@ -2238,6 +2748,11 @@
         <member name="E:LightningReview.ExtensionFramework.IApp.IssueLocationBeforeJump">
             <summary>
             指摘箇所へのジャンプの前に発生します。
+            </summary>
+        </member>
+        <member name="E:LightningReview.ExtensionFramework.IApp.IssueLinkBeforeJump">
+            <summary>
+            指摘リンクへのジャンプの前に発生します。
             </summary>
         </member>
         <member name="P:LightningReview.ExtensionFramework.IApp.ReviewWindows">
@@ -2327,6 +2842,14 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:LightningReview.ExtensionFramework.IApp.RunScriptFile(System.String,System.Collections.Generic.IDictionary{System.String,System.Object})">
+            <summary>
+            スクリプトを実行します。
+            </summary>
+            <param name="filePath">スクリプトファイルのパス。</param>
+            <param name="scriptParams">スクリプトパラメータ。</param>
+            <returns>スクリプト実行結果。</returns>
+        </member>
         <member name="M:LightningReview.ExtensionFramework.IApp.TrackEvent(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
             <summary>
             ユーザーが情報収集に同意している場合に限り、指定した引数の値でサーバーにログを登録する
@@ -2348,6 +2871,15 @@
             <param name="Extension">エクステンション</param>
             <returns>ツールバーに追加するアイテムのビルダー</returns>
         </member>
+        <member name="M:LightningReview.ExtensionFramework.IHostApp.RemoveMenu(System.String,System.String,System.String)">
+            <summary>
+            ロケーションと親メニュー名を指定して、指定した名前のメニューを削除します。
+            親メニュー名の指定がない場合は、ロケーションに対応するメニューから指定した名前のメニューを削除します。
+            </summary>
+            <param name="location">ロケーション。</param>
+            <param name="menuName">削除するメニュー名。</param>
+            <param name="parentMenuName">親メニュー名。</param>
+        </member>
         <member name="P:LightningReview.ExtensionFramework.IHostApp.ExtensionFolders">
             <summary>
             エクステンションをロードするフォルダ
@@ -2355,35 +2887,38 @@
         </member>
         <member name="T:LightningReview.ExtensionFramework.IDocumentParser">
             <summary>
-            ドキュメントのアウトライン解析を実現するインタフェース
+            ドキュメントのアウトライン解析を実現するインタフェースです。
             </summary>
         </member>
         <member name="P:LightningReview.ExtensionFramework.IDocumentParser.FileExtensions">
             <summary>
-            対応した拡張子
+            パーサーが対応している拡張子の一覧を取得します。
             </summary>
+            <value>パーサーが対応している拡張子の一覧。</value>
         </member>
         <member name="M:LightningReview.ExtensionFramework.IDocumentParser.IsParserFor(System.String)">
             <summary>
-            対象のパーサーであるかを検証してもどします
+            パーサーが指定したファイルの拡張子に対応しているかを検証します。
             </summary>
-            <param name="filePath">ファイルパス</param>
-            <returns>対象のパーサーであるか</returns>
+            <param name="filePath">検証対象のファイルパス。</param>
+            <returns>パーサーが指定したファイルの拡張子に対応しているか。対応している場合はtrue、それ以外はfalseです。</returns>
         </member>
-        <member name="M:LightningReview.ExtensionFramework.IDocumentParser.Parse(LightningReview.ExtensionFramework.IDocument)">
+        <member name="M:LightningReview.ExtensionFramework.IDocumentParser.Parse(LightningReview.ExtensionFramework.IDocument,System.String)">
             <summary>
-            パースする
+            ドキュメントをアウトライン解析します。
             </summary>
-            <param name="document">対象ドキュメント</param>
-            <returns>パースが成功したか</returns>
+            <param name="document">アウトライン解析対象のドキュメント。</param>
+            <param name="filePath">アウトライン解析対象のファイルパス。</param>
+            <returns>アウトライン解析が成功したか。成功した場合はtrue、それ以外はfalseです。</returns>
         </member>
-        <member name="M:LightningReview.ExtensionFramework.IDocumentParser.Jump(LightningReview.ExtensionFramework.IDocument,System.String)">
+        <member name="M:LightningReview.ExtensionFramework.IDocumentParser.Jump(LightningReview.ExtensionFramework.IDocument,System.String,System.String)">
             <summary>
-            ドキュメントの該当位置にジャンプ
+            ドキュメントの該当位置にジャンプします。
             </summary>
-            <param name="document">対象ドキュメント</param>
-            <param name="physicalLocationXml">対象位置</param>
-            <returns>ジャンプが成功したか</returns>
+            <param name="document">ジャンプする対象のドキュメント。</param>
+            <param name="physicalLocationXml">ジャンプする対象の位置。</param>
+            <param name="filePath">ジャンプする対象のファイルパス。</param>
+            <returns>ジャンプが成功したか。成功した場合はtrue、それ以外はfalseです。</returns>
         </member>
         <member name="T:LightningReview.ExtensionFramework.IReviewSummary">
             <summary>
@@ -2504,13 +3039,14 @@
         </member>
         <member name="F:LightningReview.ExtensionFramework.DocumentParser.m_FileExtensions">
             <summary>
-            拡張機能で登録したパーサーの一覧
+            パーサーが対応している拡張子の一覧。
             </summary>
         </member>
         <member name="P:LightningReview.ExtensionFramework.DocumentParser.FileExtensions">
             <summary>
-            拡張機能で登録したパーサーの一覧
+            パーサーが対応している拡張子の一覧を取得します。
             </summary>
+            <value>パーサーが対応している拡張子の一覧。</value>
         </member>
         <member name="M:LightningReview.ExtensionFramework.DocumentParser.#ctor">
             <summary>
@@ -2521,36 +3057,41 @@
             <summary>
             対応した拡張子を追加します。
             </summary>
-            <param name="extension"></param>
+            <param name="extension">対応した拡張子</param>
         </member>
         <member name="M:LightningReview.ExtensionFramework.DocumentParser.IsFileExtensionSupported(System.String)">
             <summary>
-            指定の拡張子のファイルに対応したパーサーかを戻します
+            指定の拡張子のファイルに対応したパーサーかを検証します。
             </summary>
-            <param name="ext">拡張子</param>
-            <returns></returns>
+            <param name="ext">指定の拡張子。</param>
+            <returns>パーサーが指定の拡張子のファイルに対応しているか。対応している場合はtrue、それ以外はfalseです。</returns>
         </member>
         <member name="M:LightningReview.ExtensionFramework.DocumentParser.IsParserFor(System.String)">
             <summary>
-            対象のパーサーであるかを検証してもどします
+            パーサーが指定したファイルの拡張子に対応しているかを検証します。
             </summary>
-            <param name="filePath">ファイルパス</param>
-            <returns>対象のパーサーであるか</returns>
+            <param name="filePath">検証対象のファイルパス。</param>
+            <returns>パーサーが指定したファイルの拡張子に対応しているか。対応している場合はtrue、それ以外はfalseです。</returns>
         </member>
-        <member name="M:LightningReview.ExtensionFramework.DocumentParser.Jump(LightningReview.ExtensionFramework.IDocument,System.String)">
+        <member name="M:LightningReview.ExtensionFramework.DocumentParser.Jump(LightningReview.ExtensionFramework.IDocument,System.String,System.String)">
             <summary>
-            ドキュメントの該当位置にジャンプ
+            ドキュメントの該当位置にジャンプします。
             </summary>
-            <param name="document">対象ドキュメント</param>
-            <param name="physicalLocationXml">対象位置</param>
-            <returns>ジャンプが成功したか</returns>
+            <param name="document">ジャンプする対象のドキュメント。</param>
+            <param name="physicalLocationXml">ジャンプする対象の位置。</param>
+            <param name="filePath">ジャンプする対象のファイルパス。</param>
+            <remarks>
+            physicalLocationXmlを用いて指定位置にジャンプする場合は、本メソッドをオーバーライドして処理を追加すること。
+            </remarks>
+            <returns>ジャンプが成功したか。成功した場合はtrue、それ以外はfalseです。</returns>
         </member>
-        <member name="M:LightningReview.ExtensionFramework.DocumentParser.Parse(LightningReview.ExtensionFramework.IDocument)">
+        <member name="M:LightningReview.ExtensionFramework.DocumentParser.Parse(LightningReview.ExtensionFramework.IDocument,System.String)">
             <summary>
-            パースする
+            ドキュメントをアウトライン解析します。
             </summary>
-            <param name="document">対象ドキュメント</param>
-            <returns>パースが成功したか</returns>
+            <param name="document">アウトライン解析対象のドキュメント。</param>
+            <param name="filePath">アウトライン解析対象のファイルパス。</param>
+            <returns>アウトライン解析が成功したか。成功した場合はtrue、それ以外はfalseです。</returns>
         </member>
         <member name="T:LightningReview.ExtensionFramework.DocumentParserExportAttribute">
             <summary>
@@ -2710,9 +3251,15 @@
         </member>
         <member name="P:LightningReview.ExtensionFramework.IDocument.DocumentLinks">
             <summary>
-            ドキュメントに関連づくリンクの一覧を取得します。
+            ドキュメントの関連リンクの一覧を取得します。
             </summary>
-            <value>ドキュメントに関連づくリンクの一覧。</value>
+            <value>ドキュメントの関連リンクの一覧。</value>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.IDocument.FirstDocumentLinkPath">
+            <summary>
+            ドキュメントの関連リンクの一つ目のパスを取得します。
+            </summary>
+            <value>ドキュメントの関連リンクの一つ目のパス。</value>
         </member>
         <member name="P:LightningReview.ExtensionFramework.IDocument.OutlineTree">
             <summary>
@@ -2966,6 +3513,11 @@
             ステータス
             </summary>
         </member>
+        <member name="P:LightningReview.ExtensionFramework.IReviewSetting.StatusItem">
+            <summary>
+            ステータスアイテムを取得または設定します。
+            </summary>
+        </member>
         <member name="P:LightningReview.ExtensionFramework.IReviewSetting.StatusAllowedValues">
             <summary>
             ステータスの選択肢のリストをカンマ区切りもしくは改行区切りで連結した文字列を設定する。
@@ -2974,6 +3526,11 @@
             設定時は、既存項目と一致するものについては「説明」などの他情報を保持する。
             設定時は、カンマの前後に含まれる空白文字（スペース、タブ）と
             文字列中に含まれるすべての改行文字を無視する（削除する）。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.IReviewSetting.StatusItems">
+            <summary>
+            ステータスのコレクションを取得します。
             </summary>
         </member>
         <member name="P:LightningReview.ExtensionFramework.IReviewSetting.ReviewStyle">
@@ -3036,49 +3593,6 @@
             文字列中に含まれるすべての改行文字を無視する（削除する）。
             </summary>
         </member>
-        <member name="P:LightningReview.ExtensionFramework.IReviewSetting.ApprovalStatus">
-            <summary>
-            レビュー承認ステータスを取得または設定します。
-            </summary>
-            <value>
-            レビュー承認ステータス。
-            以下の値を設定できます。
-            [値域]      [値に対応するステータス]
-            Created     作成
-            Examined    検討
-            Approved    承認
-            </value>
-        </member>
-        <member name="P:LightningReview.ExtensionFramework.IReviewSetting.Creator">
-            <summary>
-            レビュー作成者を取得または設定します。
-            </summary>
-        </member>
-        <member name="P:LightningReview.ExtensionFramework.IReviewSetting.DateCreated">
-            <summary>
-            レビュー作成日を取得または設定します。
-            </summary>
-        </member>
-        <member name="P:LightningReview.ExtensionFramework.IReviewSetting.Examiner">
-            <summary>
-            レビュー検討者を取得または設定します。
-            </summary>
-        </member>
-        <member name="P:LightningReview.ExtensionFramework.IReviewSetting.DateExamined">
-            <summary>
-            レビュー検討日を取得または設定します。
-            </summary>
-        </member>
-        <member name="P:LightningReview.ExtensionFramework.IReviewSetting.Approver">
-            <summary>
-            レビュー承認者を取得または設定します。
-            </summary>
-        </member>
-        <member name="P:LightningReview.ExtensionFramework.IReviewSetting.DateApproved">
-            <summary>
-            レビュー承認日を取得または設定します。
-            </summary>
-        </member>
         <member name="P:LightningReview.ExtensionFramework.IReviewSetting.ReviewCustomFields">
             <summary>
             レビューのカスタムフィールドの値を取得します。
@@ -3116,6 +3630,18 @@
             メンバの削除
             </summary>
             <param name="member">削除するメンバ</param>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.IReviewSetting.AddStatusItem(System.String)">
+            <summary>
+            ステータスを追加します。
+            </summary>
+            <param name="statusName">追加対象のステータス名。</param>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.IReviewSetting.DeleteStatusItem(LightningReview.ExtensionFramework.LightningReview.IStatusItem)">
+            <summary>
+            ステータスを削除します。
+            </summary>
+            <param name="status">削除対象のスタータス。</param>
         </member>
         <member name="T:LightningReview.ExtensionFramework.MenuBuilder">
             <summary>
@@ -3240,7 +3766,7 @@
         </member>
         <member name="T:LightningReview.ExtensionFramework.IIssue">
             <summary>
-            指摘の編集を実現するインタフェース
+            指摘の編集を実現するインタフェースです。
             </summary>
         </member>
         <member name="P:LightningReview.ExtensionFramework.IIssue.CorrectionPolicy">
@@ -3497,6 +4023,18 @@
             カスタムフィールドの値を取得します。
             </summary>
         </member>
+        <member name="P:LightningReview.ExtensionFramework.IIssue.NotRevisedLinks">
+            <summary>
+            指摘の修正前リンクの一覧を取得します。
+            </summary>
+            <value>指摘の修正前リンクの一覧。</value>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.IIssue.RevisedLinks">
+            <summary>
+            指摘の修正後リンクの一覧を取得します。
+            </summary>
+            <value>指摘の修正後リンクの一覧。</value>
+        </member>
         <member name="M:LightningReview.ExtensionFramework.IIssue.AddReportedImage(System.String)">
             <summary>
             指摘画像を追加する
@@ -3698,29 +4236,55 @@
         </member>
         <member name="P:LightningReview.ExtensionFramework.IReviewWindow.Review">
             <summary>
-            レビューの操作を実現するインターフェース
+            レビューの操作を実現するインターフェースを取得します。
             </summary>
         </member>
         <member name="P:LightningReview.ExtensionFramework.IReviewWindow.IsStartPageVisible">
             <summary>
-            スタートページは表示中か
+            スタートページは表示中であるかを取得します。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.IReviewWindow.Title">
+            <summary>
+            レビューウィンドウのタイトルを取得または設定します。
+            取得または設定できるのは、" - Lightning Review"より前の部分のタイトルです。
             </summary>
         </member>
         <member name="M:LightningReview.ExtensionFramework.IReviewWindow.Activate">
             <summary>
-            ウィンドウをアクティブにします
+            ウィンドウをアクティブにします。
             </summary>
         </member>
         <member name="M:LightningReview.ExtensionFramework.IReviewWindow.GetWindow">
             <summary>
-            レビューウィンドウをWindow型で取得します
+            レビューウィンドウをWindow型で取得します。
             </summary>
             <returns>対象のWindow</returns>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.IReviewWindow.ResetTitle">
+            <summary>
+             レビューウィンドウのタイトルの設定を、本体側の設定に戻します。
+            </summary>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.IReviewWindow.NewReview(System.Boolean)">
+            <summary>
+            ファイルを新規作成します。
+            現在開いているファイルは閉じます。
+            </summary>
+            <param name="discard">変更を無視して閉じる場合はtrue,変更している場合に閉じない場合はfalse</param>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.IReviewWindow.NewReviewFromTemplate(System.String,System.Boolean)">
+            <summary>
+            指定したテンプレートからレビューを新規作成します。
+            現在開いているファイルは閉じます。
+            </summary>
+            <param name="templateFilePath">テンプレートのパス</param>
+            <param name="discard">変更を無視して閉じる場合はtrue,変更している場合に閉じない場合はfalse</param>
         </member>
         <member name="M:LightningReview.ExtensionFramework.IReviewWindow.Open(System.String)">
             <summary>
             ファイルを指定して開きます。
-            現在開いているファイルは閉じます
+            現在開いているファイルは閉じます。
             </summary>
             <param name="filename"></param>
         </member>
@@ -3737,14 +4301,14 @@
         </member>
         <member name="M:LightningReview.ExtensionFramework.IReviewWindow.Close(System.Boolean)">
             <summary>
-            ウィンドウを閉じます
+            ウィンドウを閉じます。
             </summary>
-            <param name="discard">変更を無視して閉じる場合はtrue,変更している場合に閉じない場合はfalse</param>
+            <param name="discard">変更を無視して閉じる場合はtrue,変更している場合に閉じない場合はfalseを返します。</param>
             <returns>閉じたか</returns>
         </member>
         <member name="M:LightningReview.ExtensionFramework.IReviewWindow.BeginEdit(System.Boolean)">
             <summary>
-            編集の開始を指定します
+            編集の開始を指定します。
             （特に指定しなくても編集は可能であるがアンドゥの単位を指定できます）
             必ずusingで囲ってください。
             </summary>
@@ -3758,30 +4322,53 @@
             テキストボックスでの編集または画像の編集時に、その編集状態を確定します
             </summary>
         </member>
+        <member name="M:LightningReview.ExtensionFramework.IReviewWindow.ClearDirty">
+            <summary>
+            編集履歴をクリアし、レビューを未編集の状態にします。
+            </summary>
+        </member>
         <member name="M:LightningReview.ExtensionFramework.IReviewWindow.GetSelectedIssues">
             <summary>
-            選択した指摘を取得する
+            選択した指摘を取得します。
             </summary>
             <returns>指摘</returns>
         </member>
         <member name="M:LightningReview.ExtensionFramework.IReviewWindow.SelectIssues(System.Collections.Generic.IEnumerable{LightningReview.ExtensionFramework.IIssue})">
             <summary>
-            指摘を選択する。
+            指摘を選択します。
             </summary>
             <param name="issues">選択したい指摘のリスト</param>
         </member>
         <member name="M:LightningReview.ExtensionFramework.IReviewWindow.ShowIssueDetailById(System.String,System.Boolean)">
             <summary>
-            指摘のIdを指定して詳細ウィンドウを表示します
+            指摘のIdを指定して詳細ウィンドウを表示します。
             </summary>
             <param name="issueId">対象となる指摘のId</param>
             <param name="globalId">GIDの場合はtrue,ローカルIdの場合はfalse</param>
         </member>
         <member name="M:LightningReview.ExtensionFramework.IReviewWindow.ApplyIdFilter(System.String)">
             <summary>
-            指摘Idでフィルタします
+            指摘Idでフィルタします。
             </summary>
             <param name="issueIds">対象となるIdのカンマ区切りの文字列で</param>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.IReviewWindow.ShowQuickReviewWindow(System.String,System.String,System.Collections.Generic.IDictionary{System.String,System.String})">
+            <summary>
+            クイックレビューウインドウを表示します。
+            </summary>
+            <param name="outlinePath">
+            指摘を追加するアウトラインのパス。
+            "/ドキュメント名/アウトラインノード名"のように指定します。
+            一致するパスが存在しない場合、エラーを返します。
+            </param>
+            <param name="description">
+            クイックレビューウインドウの指摘内容に記入する文字列。
+            空文字の場合、クイックレビューウインドウの指摘内容は空です。
+            </param>
+            <param name="metaDatas">
+            メタデータ。
+            クイックレビューウインドウで追加する指摘にメタデータを設定します。
+            </param>
         </member>
         <member name="M:LightningReview.ExtensionFramework.IReviewWindow.GetSelectedDocuments">
             <summary>
@@ -3808,15 +4395,11 @@
             </summary>
             <param name="outlineNodes">選択したいアウトラインの一覧</param>
         </member>
-        <member name="M:LightningReview.ExtensionFramework.IReviewWindow.ParseDocument(LightningReview.ExtensionFramework.IDocument,System.Int32)">
+        <member name="M:LightningReview.ExtensionFramework.IReviewWindow.ParseDocument(LightningReview.ExtensionFramework.IDocument)">
             <summary>
-            ドキュメントの指定したインデックスのリンクでアウトライン解析します。
+            指定したドキュメントの先頭のリンクでアウトライン解析します。
             </summary>
             <param name="document">ドキュメント。</param>
-            <param name="documentLinkIndex">
-            アウトライン解析するドキュメントリンクのインデックス。
-            値域の最小値は0、最大値はドキュメントリンクの個数-1。
-            </param>
         </member>
         <member name="T:LightningReview.ExtensionFramework.IExtensionSettings">
             <summary>
@@ -4023,6 +4606,15 @@
             ツールバーに追加するアイテムの登録を開始します。ToolBarItemBuilderオブジェクトを戻すのでそこで .Location(..)のように指定して下さい。
             </summary>
             <returns>ToolBarItemBuilderオブジェクト</returns>
+        </member>
+        <member name="M:LightningReview.ExtensionFramework.ExtensionBase.RemoveMenu(System.String,System.String,System.String)">
+            <summary>
+            ロケーションと親メニュー名を指定して、指定した名前のメニューを削除します。
+            親メニュー名の指定がない場合は、ロケーションに対応するメニューから指定した名前のメニューを削除します。
+            </summary>
+            <param name="location">ロケーション。</param>
+            <param name="menuName">削除するメニュー名。</param>
+            <param name="parentMenuName">親メニュー名。</param>
         </member>
         <member name="M:LightningReview.ExtensionFramework.ExtensionBase.OnBeforeActivate">
             <summary>
@@ -4328,6 +4920,11 @@
               木 に類似しているローカライズされた文字列を検索します。
             </summary>
         </member>
+        <member name="P:LightningReview.ExtensionFramework.Properties.Resources.Caption_Today0">
+            <summary>
+              今日 に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
         <member name="P:LightningReview.ExtensionFramework.Properties.Resources.Caption_Tuesday0">
             <summary>
               火 に類似しているローカライズされた文字列を検索します。
@@ -4403,6 +5000,11 @@
         <member name="P:LightningReview.ExtensionFramework.Properties.Resources.MessageBox_Title">
             <summary>
               Lightning Review に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:LightningReview.ExtensionFramework.Properties.Resources.ToolTip_ClearDate0">
+            <summary>
+              日付をクリアします に類似しているローカライズされた文字列を検索します。
             </summary>
         </member>
     </members>
